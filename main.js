@@ -165,6 +165,7 @@ one.addEventListener("change", function () {
     mainWord.splice(mainWord.indexOf("A"), mainWord.indexOf("Z") + 1);
     check1 = !check1;
   }
+  oneCheck();
   changeWord();
 });
 two.addEventListener("change", function () {
@@ -175,6 +176,7 @@ two.addEventListener("change", function () {
     mainWord.splice(mainWord.indexOf("a"), mainWord.indexOf("z") + 1);
     check2 = !check2;
   }
+  oneCheck();
   changeWord();
 });
 three.addEventListener("change", function () {
@@ -185,6 +187,7 @@ three.addEventListener("change", function () {
     mainWord.splice(mainWord.indexOf(0), mainWord.indexOf(9) + 1);
     check3 = !check3;
   }
+  oneCheck();
   changeWord();
 });
 four.addEventListener("change", function () {
@@ -196,4 +199,36 @@ four.addEventListener("change", function () {
     check4 = !check4;
   }
   changeWord();
+  oneCheck();
 });
+
+function oneCheck() {
+  let checks = [check1, check2, check3, check4];
+  let count = 0;
+  for (let i = 0; i < checks.length; i++) {
+    if (checks[i] === true) {
+      count++;
+    }
+  }
+  console.log(checks);
+  if (count === 1) {
+    document
+      .querySelector(`.check input:nth-of-type(${checks.indexOf(true) + 1})`)
+      .classList.add("e-none");
+    document
+      .querySelector(`.check label:nth-of-type(${checks.indexOf(true) + 1})`)
+      .classList.add("e-none");
+  } else {
+    document.querySelector(`.check input`).classList.replace("e-none", "n");
+    document.querySelector(`.check label`).classList.replace("e-none", "n");
+  }
+}
+
+document.querySelector(".copy").onclick = function () {
+  navigator.clipboard.writeText(word.value);
+  this.innerHTML = "Copyed";
+  setTimeout(() => {
+    this.innerHTML = "Copy";
+    this.style.pointerEvent = "none";
+  }, 7000);
+};
