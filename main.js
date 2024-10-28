@@ -219,8 +219,15 @@ function oneCheck() {
       .querySelector(`.check label:nth-of-type(${checks.indexOf(true) + 1})`)
       .classList.add("e-none");
   } else {
-    document.querySelector(`.check input`).classList.replace("e-none", "n");
-    document.querySelector(`.check label`).classList.replace("e-none", "n");
+    for (let i 0=;i<checks length;i++) {
+      if (document
+      .querySelector(`.check input:nth-of-type(${checks.indexOf(true) + 1})`).classList.contains("e-none") {
+        document
+      .querySelector(`.check label:nth-of-type(${checks.indexOf(true) + 1})`).classList.remove("e-none")
+          document
+      .querySelector(`.check input:nth-of-type(${checks.indexOf(true) + 1})`).classList.remove("e-none")
+      }
+    }
   }
 }
 
