@@ -3,14 +3,11 @@ const range = document.querySelector(".range");
 const wordLen = document.querySelector(".length");
 const mins = document.querySelector(".mins");
 const plus = document.querySelector(".plus");
+const strong = document.querySelector(".strong");
 
 function zfill(num) {
   if (num < 10) return String(num).padStart(2, "0");
   return num;
-}
-
-function changeWord() {
-  
 }
 
 const uppercaseLetters = [
@@ -102,21 +99,56 @@ const symbols = [
 
 const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-let mainWord = [];
-
+let mainWord = [
+  ...lowercaseLetters,
+  ...uppercaseLetters,
+  ...numbers,
+  ...symbols,
+];
+function changeWord() {
+  word.value = "";
+  for (let i = 0; i < range.value; i++) {
+    word.value += mainWord[Math.floor(Math.random() * mainWord.length)];
+  }
+  Strong();
+}
+function Strong() {
+  if (range.value < 5) {
+    strong.innerHTML = "Very Weak";
+  } else if (range.value < 10) {
+    strong.innerHTML = "Weak";
+  } else if (range.value < 12) {
+    strong.innerHTML = "Strong";
+  } else {
+    strong.innerHTML = "Very Strong";
+  }
+}
+changeWord();
 wordLen.innerHTML = `Word Length is ${zfill(range.value)}`;
 range.addEventListener("input", function () {
   wordLen.innerHTML = `Word Length is ${zfill(range.value)}`;
+  changeWord();
 });
 
 plus.addEventListener("click", function () {
   range.value++;
   wordLen.innerHTML = `Word Length is ${zfill(range.value)}`;
+
+  changeWord();
 });
 mins.addEventListener("click", function () {
   range.value--;
   wordLen.innerHTML = `Word Length is ${zfill(range.value)}`;
+  changeWord();
 });
+
+document.querySelector("i").onclick = function () {
+  changeWord();
+};
+
+// Strong
+
+//check box
 const one = document.querySelector("#one");
 const two = document.querySelector("#two");
 const three = document.querySelector("#three");
@@ -126,42 +158,42 @@ let check2 = true;
 let check3 = true;
 let check4 = true;
 one.addEventListener("change", function () {
-  if (check1===true) {
+  if (!check1) {
     mainWord.push(...uppercaseLetters);
-    check1 = false;
+    check1 = !check1;
   } else {
     mainWord.splice(mainWord.indexOf("A"), mainWord.indexOf("Z") + 1);
-    check1 = true;
+    check1 = !check1;
   }
-  console.log(mainWord);
+  changeWord();
 });
 two.addEventListener("change", function () {
-  if (check2) {
+  if (!check2) {
     mainWord.push(...lowercaseLetters);
     check2 = !check2;
   } else {
     mainWord.splice(mainWord.indexOf("a"), mainWord.indexOf("z") + 1);
     check2 = !check2;
   }
-  console.log(mainWord);
+  changeWord();
 });
 three.addEventListener("change", function () {
-  if (check3) {
+  if (!check3) {
     mainWord.push(...numbers);
-    check3 = false;
+    check3 = !check3;
   } else {
     mainWord.splice(mainWord.indexOf(0), mainWord.indexOf(9) + 1);
-    check3 = true;
+    check3 = !check3;
   }
-  console.log(mainWord);
+  changeWord();
 });
 four.addEventListener("change", function () {
-  if (check4) {
+  if (!check4) {
     mainWord.push(...symbols);
-    check4 = false;
+    check4 = !check4;
   } else {
     mainWord.splice(mainWord.indexOf("!"), mainWord.indexOf("/") + 1);
-    check4 = true;
+    check4 = !check4;
   }
-  console.log(mainWord);
+  changeWord();
 });

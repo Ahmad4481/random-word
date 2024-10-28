@@ -1,6 +1,9 @@
 body {
   background-color: #dadada;
-  font-family: 'Open Sans',serif;
+  font-family: "Open Sans", serif;
+}
+:root {
+  --mainColor: #071d2b;
 }
 :focus {
   outline: none;
@@ -17,13 +20,14 @@ form > div {
 .title {
   font-size: 50px;
   text-align: center;
-  color: #315ca5;
+  color: var(--mainColor);
   margin-bottom: 10px;
 }
 .title + p {
   text-align: center;
   font-size: 20px;
   margin: 20px 0 50px;
+  color: var(--mainColor);
 }
 input.word {
   width: 480px;
@@ -32,8 +36,31 @@ input.word {
   height: 50px;
   margin: 20px;
   margin-bottom: 35px;
+  padding: 15px 160px 15px 15px;
+  font-size: 19px;
+  text-overflow: ellipsis;
 }
-input.word::before {
+div:first-child {
+  color: var(--mainColor);
+  position: relative;
+  width: fit-content;
+  i {
+    position: absolute;
+    top: 35%;
+    right: 150px;
+    cursor: pointer;
+  }
+  .strong {
+    position: absolute;
+    top: 30%;
+    right: 185px;
+    background-color: #0070f6;
+    color: white;
+    padding: 3px 10px 3px 0;
+    width: 110px;
+    border-radius: 6px;
+    text-align: right;
+  }
 }
 
 .copy {
@@ -44,12 +71,12 @@ input.word::before {
   color: white;
   border-radius: 20px;
   font-size: 20px;
-  transition: .3s;
+  transition: 0.3s;
   &:hover {
     scale: 1.05;
   }
 }
-span {
+span:not(.strong) {
   font-size: 20px;
   margin: 20px;
 }
@@ -66,7 +93,7 @@ span {
   width: 20px;
   font-size: 16px;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
   &:hover {
     scale: 1.1;
     background-color: #1c6fd2;
@@ -77,6 +104,7 @@ span {
   margin: 0 10px;
 }
 .check {
+  color: var(--mainColor);
   input {
   }
   label {
