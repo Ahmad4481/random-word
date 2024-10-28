@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Word</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <h1 class="title">Random Word</h1>
+  <p class="discription">Create strong, secure passwords to keep your account safe online.</p>
+  <form action="">
+    <div>
+      <input type="text" class="word" readonly>
+      <input type="button" value="Copy" class="copy">
+    </div>
+    <div>
+      <span class="length"></span>
+      <input type="button" value="-" class="change mins">
+      <input type="range" class="range" min="1" max="50" value="1">
+      <input type="button" value="+" class="change plus">
+    </div>
+    <div class="check">
+      <span>Characters used:</span>
+      <label for="one">ABC</label>
+      <input type="checkbox" id="one">
+      <label for="two">abc</label>
+      <input type="checkbox" id="two">
+      <label for="three">123</label>
+      <input type="checkbox" id="three">
+      <label for="four">&$#</label>
+      <input type="checkbox" id="four">
+    </div>
+  </form>
+  <script src="main.js"></script>
+</body>
+
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مثال على input type range</title>
+</head>
+<body>
+
+    <input type="range" id="myRange" min="1" max="100" value="50">
+    <p>القيمة: <span id="valueDisplay">50</span></p>
+
+    <script>
+        // الحصول على عنصر الـ input والـ span لعرض القيمة
+        const rangeInput = document.getElementById('myRange');
+        const valueDisplay = document.getElementById('valueDisplay');
+
+        // تحديث القيمة عند تغيير الـ input
+        rangeInput.addEventListener('input', function() {
+            valueDisplay.textContent = rangeInput.value;
+        });
+    </script>
+
+</body>
+</html> -->
