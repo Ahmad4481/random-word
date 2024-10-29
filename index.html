@@ -15,62 +15,38 @@
 </head>
 
 <body>
-  <h1 class="title">Random Word</h1>
-  <p class="discription">Create strong, secure passwords to keep your account safe online.</p>
+  <h1 class="title">Generator Passwords</h1>
+  <p class="description">Create strong, secure passwords to keep your account safe online.</p>
   <form action="">
-    <div>
+    <div class="input-container">
       <input type="text" class="word" readonly>
       <i class="fa-solid fa-rotate-left"></i>
       <span class="strong"></span>
-      <span class="copy">Copy</span>
+      <button type="button" class="copy">Copy</button>
     </div>
-    <div>
+    <div class="range-container">
       <span class="length"></span>
-      <input type="button" value="-" class="change mins">
+      <button type="button" class="change mins">-</button>
       <input type="range" class="range" min="1" max="50" value="1">
-      <input type="button" value="+" class="change plus">
+      <button type="button" class="change plus">+</button>
     </div>
     <div class="check">
-      <span>Characters used:</span>
-      <label for="one">ABC</label>
-      <input type="checkbox" id="one" checked>
-      <label for="two">abc</label>
-      <input type="checkbox" id="two" checked>
-      <label for="three">123</label>
-      <input type="checkbox" id="three" checked>
-      <label for="four">&$#</label>
-      <input type="checkbox" id="four" checked>
+      <span>Characters Used:</span>
+      <label for="one" class="j">ABC</label>
+      <input type="checkbox" id="one" class="toggle-checkbox" checked>
+      <label for="one" class="toggle-switch"></label>
+      <label for="two" class="j">abc</label>
+      <input type="checkbox" id="two" class="toggle-checkbox" checked>
+      <label for="two" class="toggle-switch"></label>
+      <label for="three" class="j">123</label>
+      <input type="checkbox" id="three" class="toggle-checkbox" checked>
+      <label for="three" class="toggle-switch"></label>
+      <label for="four" class="j">{|;</label>
+      <input type="checkbox" id="four" class="toggle-checkbox" checked>
+      <label for="four" class="toggle-switch"></label>
     </div>
   </form>
   <script src="main.js"></script>
 </body>
 
 </html>
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مثال على input type range</title>
-</head>
-<body>
-
-    <input type="range" id="myRange" min="1" max="100" value="50">
-    <p>القيمة: <span id="valueDisplay">50</span></p>
-
-    <script>
-        // الحصول على عنصر الـ input والـ span لعرض القيمة
-        const rangeInput = document.getElementById('myRange');
-        const valueDisplay = document.getElementById('valueDisplay');
-
-        // تحديث القيمة عند تغيير الـ input
-        rangeInput.addEventListener('input', function() {
-            valueDisplay.textContent = rangeInput.value;
-        });
-    </script>
-
-</body>
-</html> -->
